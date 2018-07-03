@@ -4,4 +4,4 @@ This lecture introduces various statistical distributions, how they relate, and 
 
 ## Supplementary Material:
 Read the following material for a through discription the statistical models discussed in this lecture:
-- Chapter 2, Practical Statistics for Data Scienceß
+- Chapter 2, Practical Statistics for Data Science
