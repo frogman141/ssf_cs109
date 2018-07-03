@@ -16,7 +16,7 @@ After you have completed all of the homework you now need to work on the courses
 ## Final Project:
 After completing all of the course material you'll need to work on a 2 week-long data science project. The goal of the project is to go through the complete data science process to answer questions you have about some topic of your own choosing. You will acquire the data, design your visualizations, run statistical analysis, and communicate the results. 
 
-If you want to you can form a team with another individual that has completed this final project.
+If you want to you can form a team with another individual that has completed this course.
 
 **Project Milestone:**
 - Data collection and cleaning
@@ -27,10 +27,11 @@ If you want to you can form a team with another individual that has completed th
 
 ## Books Required:
 In addition to the course material spend there are four books that I would recommend reading. The last two I would recommend after the course is completed.
-1. **Python for Data Analysis** 2nd Edition
-2. **Practical Statistics for Data Science**
-3. **Hands on Machine Learning with Scikit-learn and Tensorflow**
-4. **Data Science for Business**
-5. **Machine Learning for Hackers**
+1. **Think Stats 2nd Edition** 
+2. **Python for Data Analysis 2nd Edition**
+3. **Practical Statistics for Data Science**
+4. **Hands on Machine Learning with Scikit-learn and Tensorflow**
+5. **Data Science for Business**
+6. **Machine Learning for Hackers**
 
 **Author:** Alex Baker
