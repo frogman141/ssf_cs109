@@ -1,10 +1,8 @@
 # 2015lab4
 
-Fork this lab!
+This Lab provides are very quick high level run through of regressions models (linear and logistics), resampling methods (train and test split, cross-validation), and to do all of this in python utilizing scikit-learn and statsmodel. Alot of the concepts discussed in this lab are going to be discussed in greater detail in the coming lectures.
 
-When you follow along, you can add in your own notes, and try your own variations. As you are doing this, dont forget to continue doing the "add/commit/push" cycle, so that you save and version your changes, and push them to your fork. This typically looks like:
-    - git add .
-    - git commit -a
-    - git push
-    
-In case we make changes, you can incorporate them into your repo by doing: `git fetch course; git checkout course/master -- labname_original.ipynb` where `labname.ipynb` is the lab in question. An "add/commit/push" cycle will make sure these changes go into your fork as well. If you intend to work on the changed file, simply copy the file to another one and work on it. Or you could make a new branch. Remember that this fork is YOUR repository, and you can do to it what you like. 
+## Supplementary Material:
+- Chapter 4 Practical Statistics for Data Scientists
+- (Overview of Linear Regression)[https://en.wikipedia.org/wiki/Linear_regression]
+- (Different Types of Regressions)[https://www.datasciencecentral.com/profiles/blogs/10-types-of-regressions-which-one-to-use]
