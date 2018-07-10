@@ -60,3 +60,10 @@
         - **Constant Standard Deviation:** The SD of the dependent variable should constant for different values of Indepedent variable.
         - **Normal Distribution of Errors:** epsilon is assumed to be normaly distributed
         - **Independent Errors:** Observations are assumed by obtained independent of each other.
+
+- **What are Residuals?**
+    - A **Residual** is the vertical distance between a data point and the regression line
+    - Every data point has a residual. Residuals are positive if they're above the regression and negative if they are below the regression line.
+    - If the regression line passes through the point, the residual is 0
+    - **Residuals are calculated by:**
+        - Residual = Observed Value - Predicted Value 
