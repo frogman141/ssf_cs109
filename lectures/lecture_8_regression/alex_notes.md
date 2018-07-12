@@ -1,0 +1,71 @@
+# Lecture 8: More Regression
+
+- **Collinearity**
+    - **Collinearity What is it?**
+        - Collinearity is the situation in which two or more predictor variables are closely related to one another. Meaning that essentially with one of the collinearity variables you predict the values of the other variables.
+        - The problem collinearity poses for regression analysis is that it is difficult to separate out the individual effects of collinear variables.
+        - This causes coefficient estimate errors or mutlilinear regression models thereby reducing the overall accuracy of the model.
+    - **Methods of handling Collinearity**
+        1. You can discard all but one of the collinear variables.
+        2. Merge all of the collinear variables into one variable via feature engineering
+    - **Detecting Colliniearity**
+        - One way of detecting collinearity is by looking at a correlation matrix. Any pair of variables correlated to each either positively or negatively to the extreme is an indicator or collinearity.
+        - To detect mutlicollinearity (collinearity involving more than 2 variables) calculate the Variable Influence Factor (VIF). If the VIF you calculates exceeds 5 or 10 is generallly a problem related to collinearity.
+
+- **Odd's Ratio**
+    - What is the different between probability and odds:
+        - Probability is defined as the fraction of desired outcomes in the context of every possible outcome with a value between 0 and 1,
+        - Odds can have any value from zero to infinity and they represent a ratio of desired outcomes versus the field. 
+    - Odd's Ratio (OR) represents the odds that an outcome will occur given a particular exposure compound to the odds of the outcome occuring in absence of exposure to a paricular event.
+    - OR is the ratio of 2 different peoples odds of some particular outcome:
+        -  OR = (Pa / (1 - Pa)) / (Pb / (1 - Pb))
+    - **Odd's Ratio Uses:**
+        - meta-analysis
+        - case-study studies
+        - logistic regression
+
+- **Logistic Regression**
+    - Logisitic Regresssion is a binary classification algorithm that models the probability of a the default class (e.g. the first class).
+    - Logisitc Regression model it's predictions by transforming it's probability into a binary 0 or 1 class outcome
+    - The core model of Logisitic Regression is P(x) = P(Y = 1|X)
+    - This transformation is done via the logit function
+
+- **Curse of Dimensionality**
+    - Traditional statistical techniques for Regression and Classification were intended for low-dimensional datasets.
+        - **Low-Dimensional** data is when n observation are of greater number of p parameters
+        - **High-Dimensional** data is when p parameters are greater than the number of n observations
+    - The reason traditional statistical techniques break down is beacuse regardless of whether or not there truly is a relationship between the feautres and the response, least squares will yield a coefficient estimate that results in a perfect fit of high-dimensional data
+    - Least Squares perfectly fits the coefficient estimate because of the spareness of High-Dimensional data.
+    - How do we make these statistical techniques work on High-Dimensional Data? Well there are 3 real optitions:
+        1. **Subset Selection:** We identify a subset of p Predictors that relate to the response.
+        2. **Shrinkage Estimate:** Force the estimated coefficients for p Predictors toward 0. Thereby reducing variance in the model
+        3. **Dimensionality Reduction:** Project p Predictors into a M-Dimensional Subspace, where M < P. Then by computing M different linear combinations of the variables we can generate subspace projects. We then take these subspace projects and conduct the statistical analysis on them. 
+
+- **Subset Selection Methods:**
+    - There are really only 3 types of Subset Selection:
+        - **Best Subset Selection** fit a separate least squares regression best subset selection for each possible combination of the p predictors. That is, we fit all p models that contain exactly one predictor, all 􏰁p􏰀 = p(p−1)/2 models that contain 2 exactly two predictors, and so forth. We then look at all of the resulting models, with the goal of identifying the one that is best.
+        - **Forward stepwise selection** begins with a model containing no predictors, and then adds predictors to the model, one-at-a-time, until all of the predictors are in the model. In particular, at each step the variable that gives the greatest additional improvement to the fit is added to the model.
+        - **Negative Stepwise Selection:** Like forward stepwise selection, backward stepwise selection provides an efficient alternative to best subset selection. However, unlike forward stepwise selection, it begins with the full least squares model containing all p predictors, and then iteratively removes the least useful predictor, one-at-a-time.
+
+    - Methods of validating the models generated by Subset Selection Methods:
+        1. Indirectly estimate test error by making an adjustment to the test error to account for the bias due to overfit.
+        2. Or we can directly estimate the test error, using either a validation set appoarch or cross-validation appoarch.(this is the perferred method.)
+
+- **Shrinkage Estimate**
+    - Shrinkage Estimators are alternative methods to least square for estimating coefficient in regression models. Shrinkage Estimators do this by constraining coefficient estimates and forcing them towards 0.
+    - This constraining of coefficient estimates also results in a signficantly reduces the variability of a model.
+    - The best known shrinkage methods are: 
+        - **Ridge Regression** 
+            - Ridge Regression aims to fit the data the best it by making RSS small. However, there is a shrinkage penalty that allows you to force ridge regression coefficients towards 0. This is done by applying L2 regularization.
+                - L2 regulartization adds an L2 penalty equal to the square of the magnitude of coefficients. L2 will not yield sparse models and all coefficients are shrunk by the same factor (none are eliminated).
+            - Selecting the right shrinkage penalty is critical for Ridge Regression.
+            - The downside to ridge regression is that model will always include all p Predictors
+        - **LASSO**
+            - LASSO is an alternative shrinkage method to Ridge Regression. THe primary difference between the 2 models is LASSO use L1 penalty function. 
+                - L1 regularization adds an L1 penalty equal to the absolute value of the magnitude of coefficients. In other words, it limits the size of the coefficients. L1 can yield sparse models (i.e. models with few coefficients)
+            - What this does is force some of the coefficient estimates to exactly equal 0. When the shrinkage penalty is large enough
+            - What this practically means is LASSO performs variable selection: When a coefficient is equal to zero this means the predictor holds no influence over the model.
+            - THis is why LASSO is said to yield sparse models. because the model only uses a only a subset of the predictors.
+
+
+    
