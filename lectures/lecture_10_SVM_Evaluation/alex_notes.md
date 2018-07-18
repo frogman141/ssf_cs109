@@ -60,4 +60,35 @@
                 5. iteratively repeat this process until converging to an optimum.
 
 - **Model Evaluation Methods**
-    - 
+    - Evaluation metrics explain the performance of a model
+    - Training predictive modeling works via the following feedback loop: 
+        1. build a model
+        2. recieve feedback from evaluation metrics
+        3. make improvements
+        4. continue until you achieve a desirable accuracy
+    - An important thing to know is that the evaluation metic you choose to use will vary based upon the type of model your evaluating. For instance, Regression and Classification models require different evaluation methods.
+    - These notes will primarily focus upon classfication methods of evaluation model performance.
+    - **Confusion Matrix**
+        - A Confustion Matrix is an N x N matrix where N is the number of classes being predicted by the model
+        - From a Confustion Matrix you calculate the follow metrics:
+            - **Accuracy** the proportion of the total number of predictions that were correct. (Both True Positive and True Negative)
+            - **Precision** (Postive Prediction Value) the proportion of positive cases that were correctly identified.
+            - **Negative Predictive Value** the proportion of negative cases that were correctly identified.
+            - **Sensitivity or Recall** the proportion of actual positive cases which are correctly identified.
+            - **Specificity** the proportion of actual negative cases which are correctly identified.
+        - Typically, your concerned with only one of these metrics you can calculate.
+    
+    - **Receiver Operating Characteristic curve**
+        - Receiver Operating Characteristic curve (ROC curve) is a plot of the true positive rate against the false positive rate
+        - ROC Curve tells use the following about a model:
+            1. It shows the tradeoff between sensitivity and specificity (any increase in sensitivity will be accompanied by a decrease in specificity).
+            2. The closer the curve follows the left-hand border and then the top border of the ROC space, the more accurate the test.
+            3. The closer the curve comes to the 45-degree diagonal of the ROC space, the less accurate the test.
+    
+    - **Precision-Recall curve**
+        - Precision-Recall is a useful measure of success of prediction when the classes are very imbalanced. 
+            - For example in information retrieval, precision is a measure of result relevancy, while recall is a measure of how many truly relevant results are returned.
+        - For the Preceision Recall curve we want to see the curve move up towards upper left of graph.
+        - The Precision-Recall curve shows the tradeoff between precision and recall for different threshold. 
+            - A high area under the curve represents both high recall and high precision, where high precision relates to a low false positive rate, and high recall relates to a low false negative rate. 
+            - High scores for both show that the classifier is returning accurate results (high precision), as well as returning a majority of all positive results 
