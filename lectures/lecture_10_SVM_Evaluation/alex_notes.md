@@ -60,4 +60,4 @@
                 5. iteratively repeat this process until converging to an optimum.
 
 - **Model Evaluation Methods**
-    -
+    - 
