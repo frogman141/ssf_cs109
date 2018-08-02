@@ -29,3 +29,22 @@
             - -1 is a totally negative correlation.
             - 0 is where there are no correlations between the two variables.
     - **Cosine Similarity**
+        - cosine similarity metrics finds the normalized dot product of the 2 attributes. cosine similarity works by finding the cosine angle between two objects.
+        - Therefore, cosine similarity is judging the orientation not magnitude 
+            - 2 vectors with the same orientation will have a cosine similarity of 1
+            - 2 vectors at 90 degrees of each other will have a cosine similarity of 0
+            - vectors going in a oppisite direction is -1
+
+- **Missing Data Strategies**
+    - In most real world situations you will have an imbalance between classes you are trying to classify. There are 3 primary methods handling this situation
+    - **Metric Selection**
+        - Typically, this problem can be solved by emphasing metrics such as recall or precisions over accuracy
+    - **Cost-Sensitive Learning**
+        - Typically, misclassification are treated equally. But when you have imbalance in your data you may want to assign a greater penalty to misclassification of minority classes.
+        - This can be done via cost-sensitivity learning. Typically, cost-sensitivity learning has the cost equal the inverse of the proportin of the dataset that the classes make up
+        - Thereby, increasing the penalty as the class size decreases
+    - **Sampling**
+        - Another way of solving imbalance dataset is to oversample minority classes, or undersample majority classes
+            - A warning though these simple sampling methods are flawed and won't work 100% of the time.
+        - a more robust sampling methods such as SMOTE, which actually creates now instances of a minority class by creating convex combinations of neighboring instances.
+            - this method will cause some overfitting but not mcu has we create synthetic examples rather than using duplicates
