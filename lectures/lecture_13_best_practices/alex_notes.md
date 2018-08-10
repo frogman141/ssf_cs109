@@ -47,4 +47,4 @@
         - Another way of solving imbalance dataset is to oversample minority classes, or undersample majority classes
             - A warning though these simple sampling methods are flawed and won't work 100% of the time.
         - a more robust sampling methods such as SMOTE, which actually creates now instances of a minority class by creating convex combinations of neighboring instances.
-            - this method will cause some overfitting but not mcu has we create synthetic examples rather than using duplicates
+            - this method will cause some overfitting but not much as we are creating synthetic examples rather than using duplicates
