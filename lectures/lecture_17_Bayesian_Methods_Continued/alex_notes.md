@@ -39,7 +39,7 @@
         -  **Algorithm For Each Trail:**
             1. Sample a random variable X, from the prior B, for all B
             2. Select the bandit with the largest sample, i.e. select bandit B = argmax Xb
-            3. Ovserve the result of pulling bandit B, and update your prior
+            3. Observe the result of pulling bandit B, and update your prior
             4. Return to step 1.
         - The bayesian solution does assume the starting priors of winning for each bandit to begin with. Typically, the start assumption is a flat prior.
         - That is at the beginning we assume all probabilities of winning are equally likely. This is called a minimally informative prior.
@@ -49,4 +49,22 @@
             - Then our posterior parameters are a' = a + x, b' = b + (1 - x)
 
 - **Markov Chain Monte Carlo (MCMC)**
-    - 
+    - **The Bayesian Landscape**
+        - When we setup a Bayesian inference problem with **N unknowns**, we are implicitly creating an **N dimensional space** for the prior distributions to exist in. Associated with the space is an additional dimension, which we can describe as the **surface, or curve**, that sits on top of the space, that reflects the **prior probability** of a particular point.
+        - If these surfaces describe our **prior distributions** on the unknowns, what happens to our space after we incorporate our observed data **X**? The data **X** does not change the space, but it changes the surface of the space by **pulling and stretching the fabric of the prior surface** to reflect where the true parameters likely live.
+        - more data means more pulling and stretching. Less data, and our original shape is more present. Regardless, the resulting surface describes the **posterior distribution**. 
+        -  The data essentially **pushes up** the original surface to make **tall mountains**. The tendency of the observed data to **push up** the posterior probability in certain areas is checked by the prior probability distribution, so that less prior probability means more resistance
+    - **How to Search the Bayesian Landscape**
+        - We cannot naively search the deformed posterior space N-Dimensional because it's fundamentally exponentially difficult. That's why we use MCMC to converge towards the mountains of posterior probability.
+        - Converging usually implies moving towards a point in space, but MCMC moves towards a **broader area** in the space and randomly walks in that area, picking up samples from that area
+        - MCMC does this by exploring nearby positions and moving into areas with higher probability taking samples as we go along. We take samples in order to take advantage of the **law of large numbers**.
+        - **There is a large family of algorithms that perform MCMC. High Level of MCMC follows:**
+            1. Start at current position.
+            2. Propose moving to a new position (investigate a pebble near you).
+            3. Accept/Reject the new position based on the position's adherence to the data and prior distributions (ask if the pebble likely came from the mountain).
+            4.  1. If you accept: Move to the new position. Return to Step 1.
+                2. Else: Do not move to new position. Return to Step 1. 
+            5. After a large number of iterations, return all accepted positions.
+        - This algorithm moves in the general direction towards the regions of posterior distributions, and collect samples sparingly on the journey. 
+        - Once we reach the posterior distribution, we can easily collect samples as they likely all belong to the posterior distribution. 
+        - When the MCMC algorithm position is in an area of extremely low probability, the algorithm will move in positions **that are likely not from the posterior** but better than everything else nearby.
